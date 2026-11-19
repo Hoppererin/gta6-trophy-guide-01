@@ -7,7 +7,7 @@
 // library. Outside the grader, MAKEFUN_OUTPUT_DIR stands in for /output.
 
 import { buildDossier } from './vendor/makefun-frontend.ts';
-import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -32,7 +32,6 @@ function copyTree(name) {
 }
 
 function main() {
-  rmSync(outDir, { recursive: true, force: true });
   mkdirSync(outDir, { recursive: true });
   const appEntries = copyTree('app');
   const shotEntries = copyTree('screenshots');
